@@ -26,25 +26,39 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 
+/**
+ * 
+ * @author Ruben Bermudez
+ * @author Santiago Lopez
+ * @author Isaac Morely
+ * 
+ * @brief Class to manage in-game sounds and music
+ *
+ */
 public class OurSoundPlayer{
-	public static final int W1 = 0;
-	public static final int W2 = 1;
-	public static final int R1 = 2;
-	public static final int R2 = 3;
+	public static final int W1 = 0;		//< ID for the sound played when the gesture goes off screen without being done
+	public static final int W2 = 1;		//< ID for the sound played when you try to shake but you have no shakes left
+	public static final int R1 = 2;		//< ID for the sound played when you draw the right gesture
+	public static final int R2 = 3;		//< ID for the sound played when you get a new shake
 	public static final int APPLAUSE = 4;
-	public static final int CHEER = 5;
-	public static final int SHAKE = 6;
-	public static final int DEFEAT_MUSIC = R.raw.defeat;
-	public static final int DEFEAT_MUSIC_DURATION = 10000;
+	public static final int CHEER = 5;	//< ID for the sound played when speed is increased
+	public static final int SHAKE = 6;	//< ID for the sound played when shaking 
+	public static final int DEFEAT_MUSIC = R.raw.defeat;	//< ID for the music played when Game Over happens
+	public static final int DEFEAT_MUSIC_DURATION = 10000;	//< Period of time the defeat music will be played (in ms)
 	public static final int VICTORY_MUSIC = R.raw.victory;
 	public static final int VICTORY_MUSIC_DURATION = 5000;
 	private static SoundPool soundPool;
 	private static ArrayList<Integer> soundPoolMap;
 
-	/** Populate the SoundPool*/
+	/** 
+	 * 
+	 * @brief Populate the SoundPool
+	 * @param context Current context
+	 * 
+	 */
 	public static void initSounds(Context context) {
 		soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 100);
-		soundPoolMap = new ArrayList<Integer>(6);    
+		soundPoolMap = new ArrayList<Integer>(7);    
 		soundPoolMap.add(soundPool.load(context, R.raw.wrong1, 1));
 		soundPoolMap.add(soundPool.load(context, R.raw.wrong2, 2));
 		soundPoolMap.add(soundPool.load(context, R.raw.right1, 3));
@@ -54,6 +68,11 @@ public class OurSoundPlayer{
 		soundPoolMap.add(soundPool.load(context, R.raw.shake, 7));
 	}
 
+	/**
+	 * @brief Play the specified sound
+	 * @param context Current context
+	 * @param soundID Sound identifier in this class 
+	 */
 	public static void playSound(Context context, int soundID) {
 		float volume = 1f;
 	
@@ -62,7 +81,11 @@ public class OurSoundPlayer{
 		soundPool.play(soundPoolMap.get(soundID), volume, volume, 1, 0, 1f);
 	}
 	
-	/** Play the sound using android.media.MediaPlayer */
+	/**
+	 * @brief Play the specified music using android.media.MediaPlayer
+	 * @param context Current context
+	 * @param soundID Music identifier in this class 
+	 */
 	public static void playMusic(Context context, int soundID){      
 		MediaPlayer mp = MediaPlayer.create(context, soundID); 
 		mp.start();

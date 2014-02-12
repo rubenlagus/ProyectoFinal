@@ -29,6 +29,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+/**
+ * 
+ * @author Ruben Bermudez
+ * @author Santiago Lopez
+ * @author Isaac Morely
+ * 
+ * @brief Class to manage the list of highest scores obtained
+ *
+ */
 public class ListFragment extends Fragment {
 	View rootView;
 	AdapterView.OnItemClickListener listener;

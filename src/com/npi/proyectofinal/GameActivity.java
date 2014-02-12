@@ -343,7 +343,6 @@ public class GameActivity extends Activity implements SensorEventListener {
 		 * @param pos Position on screen of the symbol
 		 */
 		void IncreaseScore(int pos){
-			
 			//if the element was in the first 1/6 of the screen
 			if(pos < scoreThres1)
 				score += scoreCoefA1*pos + scoreCoefB1;
@@ -382,6 +381,10 @@ public class GameActivity extends Activity implements SensorEventListener {
 			return score;
 		}
 		
+		
+		/**
+		 * @brief Do the game calculations
+		 */
 		void Run(){
 			if(correctSimbol && queueElementsGame.size() > 0){
 				RelativeLayout.LayoutParams layoutParams = (LayoutParams) queueElementsGame.get(0)
@@ -569,7 +572,8 @@ public class GameActivity extends Activity implements SensorEventListener {
 	
 	private OnGesturePerformedListener handleGestureListener = new OnGesturePerformedListener() {
 		/**
-		 * @brief Predict the symbol drawn by the player and compare it with the symbol closer to the end, clearing it if they were the same
+		 * @brief Predict the symbol drawn by the player and compare 
+		 * it with the symbol closer to the end, clearing it if they were the same
 		 */
 		@Override
 		public void onGesturePerformed(GestureOverlayView gestureView, Gesture gesture) {
@@ -661,7 +665,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 	
 	/**
 	 * @name createElement
-	 * @brief Create a new element (symbol and image)
+	 * @brief Create a new element (symbol and image), randomly.
 	 * @return element Resulting element
 	 */
 	private Element createElement(){
@@ -722,15 +726,15 @@ public class GameActivity extends Activity implements SensorEventListener {
 	
 	/**
 	 * @name EraseImageView
-	 * @brief Erase previous view to change to Game Over
+	 * @brief Erase an image playing an animation
 	 * @param view
 	 */
 	void EraseImageView(ImageView view){
-		Animation gameOverAnimation = new AlphaAnimation(1.00f, 0.00f);
+		Animation imageClearAnimation = new AlphaAnimation(1.00f, 0.00f);
 
 		colaEraseImage.addLast(view);
-		gameOverAnimation.setDuration(CONST_TEMP_ANIMATION_CLEAR_SIMBOL);
-		gameOverAnimation.setAnimationListener(new AnimationListener() {
+		imageClearAnimation.setDuration(CONST_TEMP_ANIMATION_CLEAR_SIMBOL);
+		imageClearAnimation.setAnimationListener(new AnimationListener() {
 			@Override
 			public void onAnimationRepeat(Animation arg0) {
 				
@@ -747,7 +751,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 		    }
 		});
 
-		colaEraseImage.getLast().startAnimation(gameOverAnimation);
+		colaEraseImage.getLast().startAnimation(imageClearAnimation);
 	}
 	
 	/**
@@ -811,7 +815,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 	
 	/**
 	 * @name startGame
-	 * @brief Start a new game
+	 * @brief Start the thread that update the game
 	 */
 	private void startGame(){
 		gameLoopThread = new GameLoopThread();
@@ -845,6 +849,13 @@ public class GameActivity extends Activity implements SensorEventListener {
 		mSensorManager.unregisterListener(this);
 	}
 	
+	/**
+	 * @name  onRestart
+	 * @brief This method is called when the activity is restarted.
+	 * 
+	 * @see android.app.Activity#onRestart()
+	 */
+	@Override
 	public void onRestart(){
 		super.onRestart();
 		
@@ -856,6 +867,8 @@ public class GameActivity extends Activity implements SensorEventListener {
 	/**
 	 * @name onStop
 	 * @brief Stop the execution of the game
+	 * 
+	 * @see android.app.Activity#onStop()
 	 */
 	@Override
 	public void onStop(){
@@ -863,6 +876,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 		
         super.onStop();
 	}
+	
 	/**
 	 * @name pauseGame
 	 * @brief Pause the current game
@@ -871,6 +885,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 		game.PausePlay();
 		stopGame();
 	}
+	
 	/**
 	 * @name resumeGame
 	 * @brief Continue the current game
@@ -910,7 +925,7 @@ public class GameActivity extends Activity implements SensorEventListener {
 	}
 	/**
 	 * @name GameOver
-	 * @brief Show Game Over animation
+	 * @brief Show Game Over animation and ends the game
 	 */
 	private void GameOver(){
 		if(game.isPaused()){
@@ -980,11 +995,15 @@ public class GameActivity extends Activity implements SensorEventListener {
 		pauseGame();
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setCancelable(false);
-		builder.setMessage("¿Quieres salir?")
-	        .setPositiveButton("Sí", dialogClickListener)
+		builder.setMessage("Do you want to exit?")
+	        .setPositiveButton("Yes", dialogClickListener)
 	            .setNegativeButton("No", dialogClickListener).show();
 	}
-	
+
+	/**
+	 * @name goRegisScore
+	 * @brief Go to the activity ScoreRegistrer
+	 */
 	private void goRegisScore(){
 		Intent intent = new Intent(this, ScoreRegistrer.class);
 		
@@ -993,6 +1012,11 @@ public class GameActivity extends Activity implements SensorEventListener {
 		finish();
 	}
 	
+	/**
+	 * @name onKeyDown
+	 * @brief Overrides the activity method so if the users press the back button 
+	 * the game will respond as if the user had pressed the exit button
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)
 	{

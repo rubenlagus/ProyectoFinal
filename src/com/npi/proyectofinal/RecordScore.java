@@ -19,32 +19,60 @@
 
 package com.npi.proyectofinal;
 
+/**
+ * 
+ * @author Ruben Bermudez
+ * @author Santiago Lopez
+ * @author Isaac Morely
+ * 
+ * @brief Creates a Score object with its attributes
+ * 
+ *
+ */
 public class RecordScore {
 	private static final String NAME_WORD = "Name: ";
 	private static final String DATE_WORD = "Date: ";
 	private static final String SCORE_WORD = "Score: ";
-	private String name;
-	private String date;
-	private int score;
+	private String name;	//< User Name
+	private String date;	//< Date in which the score was obtained
+	private int score;		//< Score obtained
 	
+	/**
+	 * @brief Constructor
+	 */
 	RecordScore(String nName, String nDate, int nScore){
 		name = nName;
 		date = nDate;
 		score = nScore;
 	}
 	
+	/**
+	 * @brief Get the name of the scorer
+	 * @return name of a certain scorer
+	 */	
 	public String getName(){
 		return name;
 	}
 	
+	/**
+	 * @brief Find the score
+	 * @return score
+	 */
 	public int getScore(){
 		return score;
 	}
 	
+	/**
+	 * @brief Get the date in which the score was obtained
+	 * @return date of the score
+	 */
 	public String getDate(){
 		return date;
 	}
 	
+	/**
+	 * @return String with full info on a score (name, score and date)
+	 */
 	public String toString(){
 		return NAME_WORD + name + "\n" 
 				+ SCORE_WORD + Integer.toString(score) + "\n" 

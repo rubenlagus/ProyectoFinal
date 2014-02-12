@@ -16,5 +16,11 @@
     <string name="name">Name</string>
     <string name="name_hint">Write your name here</string>
     <string name="done">Done</string>
+    <string name="worst_score">You are not good at this...</string>
+    <string name="bad_score">Try again</string>
+    <string name="normal_score">Not bad</string>
+    <string name="good_score">Good job!</string>
+    <string name="great_score">Great!</string>
+    <string name="awesome_score">You are awesome!</string>
 
 </resources>

@@ -23,10 +23,22 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.webkit.WebView;
 
+/**
+ * 
+ * @author Ruben Bermudez
+ * @author Santiago Lopez
+ * @author Isaac Morely
+ * 
+ * @brief  Activity to manage the help menu 
+ *
+ */
 public class HelpActivity extends Activity {
 	
 	private WebView webView;
 	
+	/**
+	 * @brief Creates the help menu as a web page
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
