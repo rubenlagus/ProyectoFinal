@@ -49,7 +49,7 @@ public class ListFragment extends Fragment {
 		
 		final ListView listview = (ListView) getView().findViewById(R.id.listview);
 		final ArrayAdapter<RecordScore> adapter = new ArrayAdapter<RecordScore>(getView().getContext(),
-				        android.R.layout.simple_list_item_1, lista);
+				       	R.layout.list_item, lista);
 		
 		listview.setAdapter(adapter);
 		listview.setOnItemClickListener(listener);

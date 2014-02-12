@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/back_ground_color"
     tools:context=".ScoresActivity" >
 
     <TextView
@@ -17,6 +18,7 @@
         android:text="@string/score_list"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold"
+        android:textColor="@color/font_color"
         android:paddingBottom="12dp"
         android:typeface="serif" />
     

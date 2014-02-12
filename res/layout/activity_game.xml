@@ -9,6 +9,7 @@
 	    android:layout_height="match_parent"
 	    android:gravity="center_vertical"
 	    android:orientation="vertical"
+	    android:background="@color/back_ground_color_2"
 	    android:paddingBottom="@dimen/activity_vertical_margin"
 	    android:paddingLeft="@dimen/activity_horizontal_margin"
 	    android:paddingRight="@dimen/activity_horizontal_margin"
@@ -46,9 +47,10 @@
 		        android:id="@+id/scoreText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+		        android:textColor="@color/font_color"
 		        android:layout_alignParentLeft="true"
 		        android:layout_centerVertical="true"
-		        android:textSize="12sp"
+		        android:textSize="14sp"
 		        android:layout_marginLeft="88dp"
 		        android:text="@string/score"
 		        android:textStyle="bold"
@@ -58,21 +60,23 @@
 		        android:id="@+id/scoreNumberText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+		        android:textColor="@color/font_color"
 		        android:layout_centerVertical="true"
 		        android:layout_toRightOf="@+id/scoreText"
 		        android:gravity="center_vertical|left"
 		        android:text=""
-		        android:textSize="12sp"
+		        android:textSize="14sp"
 		        android:typeface="normal" /> 
 		    
 		    <TextView
 		        android:id="@+id/shakeNumberText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+		        android:textColor="@color/font_color"
 		        android:layout_alignParentRight="true"
 		        android:layout_centerVertical="true"
 		        android:text=""
-		        android:textSize="12sp"
+		        android:textSize="14sp"
 		        android:typeface="normal" />
 	
 		    <ImageView
@@ -89,11 +93,12 @@
 		        android:id="@+id/LifeNumberText"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
+		        android:textColor="@color/font_color"
 		        android:layout_marginRight="12dp"
 		        android:layout_toLeftOf="@+id/imageViewShake"
 		        android:layout_centerVertical="true"
 		        android:text=""
-		        android:textSize="12sp"
+		        android:textSize="14sp"
 		        android:typeface="normal" />
 	
 		    <ImageView
@@ -114,10 +119,10 @@
 		    android:layout_weight="1">
 		    
 			<RelativeLayout 
+			    android:background="@color/back_ground_color"
 			    android:layout_width="match_parent"
 			    android:layout_height="match_parent"
 			    android:layout_weight="1"
-			    android:background="@android:color/transparent"
 			    android:id="@+id/fatherLayout">
 			</RelativeLayout>
 		</android.gesture.GestureOverlayView>

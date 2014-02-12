@@ -13,16 +13,16 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="false"
     android:gravity="center_vertical"
-    android:paddingLeft="4dp" 
+    android:paddingLeft="4dp"
     android:paddingRight="4dp"
-    android:textSize="14sp"
-	android:textStyle="bold"
-   	android:typeface="normal"
-/>
+    android:textColor="@color/font_color"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:typeface="normal" />
+

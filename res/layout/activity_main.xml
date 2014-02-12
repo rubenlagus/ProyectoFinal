@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/back_ground_color"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -26,6 +27,7 @@
 
 	    	<Button
 		    	android:id="@+id/buttonPlay"
+		    	android:textColor="@color/font_color"
 		    	android:layout_width="match_parent"
 		     	android:layout_height="wrap_content"
 		  		android:layout_gravity="center"
@@ -46,6 +48,7 @@
 		     	android:id="@+id/buttonScore"
 		      	android:layout_width="match_parent"
 		     	android:layout_height="wrap_content"
+		     	android:textColor="@color/font_color"
 		   		android:layout_gravity="center"
 		       	android:text="@string/scores" 
 		   		android:onClick="goScores"/>
@@ -64,6 +67,7 @@
 		    	android:id="@+id/buttonHelp"
 		     	android:layout_width="match_parent"
 		    	android:layout_height="wrap_content"
+		    	android:textColor="@color/font_color"
 		   		android:layout_gravity="center"
 		  	  	android:onClick="goHelp"
 		    	android:text="@string/help" />
@@ -82,6 +86,7 @@
 				android:id="@+id/buttonExit"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
+				android:textColor="@color/font_color"
 				android:layout_gravity="center"
 				android:text="@string/exit" 
 				android:onClick="exit"/>

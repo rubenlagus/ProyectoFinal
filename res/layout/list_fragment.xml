@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TagListFragment" 
-    android:textColor="#ffffffff"
+    tools:context=".TagListFragment"
+    android:background="@android:color/transparent"
 	android:textSize="16sp"
 	android:textStyle="bold"
 	android:typeface="normal">
