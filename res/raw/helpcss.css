@@ -32,13 +32,22 @@ body{
 	right: 0px;
 	bottom: 0px;
 	left: 0px;
+	clear: both;
+}
+
+#howto {
+	clear: both;
+}
+
+#rules {
+	clear: both;
 }
 
 li.Menu {
 	float: left;
 	margin: 0;
 	padding: 0;
-	width: 49.8%;
+	width: 49.5%;
 	display: list-item;
 	color: rgb(192,237,120);
 	background-color: rgb(91,142,7);
