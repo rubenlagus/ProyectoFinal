@@ -7,6 +7,11 @@ Copyright
 Copyright 2013 Ruben Bermudez, Santiago Tapia and Isaac Morely
 
 
+Download
+--------
+
+The application is available for downloading in the store: rubenlagus.store.aptoide.com
+
 License
 -------
 
